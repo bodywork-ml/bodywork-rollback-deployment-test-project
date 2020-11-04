@@ -1,3 +1,3 @@
-# Example Bodywork Project
+# Bodywork Integration Test Resource
 
-This repository contains an example project for use with Bodywork.
+This repository contains an example Bodywork project, that will fail to execute end-to-end.
