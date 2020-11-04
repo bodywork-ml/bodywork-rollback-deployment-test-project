@@ -1,8 +1,7 @@
 """
-This module defines what will happen in stage-3.
+This module defines what will happen in stage-2a.
 """
 import sys
-import time
 
 import requests
 from flask import Flask, make_response, jsonify
@@ -16,5 +15,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    time.sleep(60)
+    raise Exception
     app.run(host='0.0.0.0', port=5000)
