@@ -15,5 +15,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    # sys.exit(1)
+    sys.exit(1)
     app.run(host='0.0.0.0', port=5000)
