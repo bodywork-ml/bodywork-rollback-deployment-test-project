@@ -15,5 +15,8 @@ def predict():
 
 
 if __name__ == '__main__':
-    sys.exit(1)
-    app.run(host='0.0.0.0', port=5000)
+    response = requests.get('http://bodywork-rollback-deployment-test-project--stage-3:5000/v2/predict')
+    if not response.ok:
+        app.run(host='0.0.0.0', port=5000)
+    else:
+        sys.exit(1)
