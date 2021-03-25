@@ -1,0 +1,39 @@
+version: "1.0"
+project:
+  name: bodywork-rollback-deployment-test-project
+  docker_image: bodyworkml/bodywork-core:latest
+  DAG: stage-1 >> stage-2 >> stage_3
+stages:
+  stage_1:
+    executable_module: main.py
+    cpu_request: 0.25
+    memory_request_mb: 100
+    batch:
+      max_completion_time_seconds: 5
+      retries: 2
+  stage_2:
+    executable_module: main.py
+    cpu_request: 0.25
+    memory_request_mb: 100
+    service:
+      max_startup_time_seconds: 5
+      replicas: 1
+      port: 5000
+      ingress: true
+    requirements:
+      - flask==1.1.2
+      - requests==2.24.0
+  stage_3:
+    executable_module: main.py
+    cpu_request: 0.25
+    memory_request_mb: 100
+    service:
+      max_startup_time_seconds: 5
+      replicas: 1
+      port: 5000
+      ingress: true
+    requirements:
+      - flask==1.1.2
+      - requests==2.24.0
+logging:
+  log_level: INFO
