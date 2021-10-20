@@ -16,7 +16,7 @@ def predict():
 
 if __name__ == '__main__':
     try:
-        response = requests.get('http://bodywork-rollback-deployment-test-project--stage-2:5000/v2/predict')
+        response = requests.get('http://stage-2:5000/v2/predict')
     except requests.exceptions.ConnectionError:
         sys.exit(1)
     finally:
