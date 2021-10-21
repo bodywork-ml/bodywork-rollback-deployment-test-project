@@ -10,14 +10,14 @@ stages:
     cpu_request: 0.1
     memory_request_mb: 100
     batch:
-      max_completion_time_seconds: 5
-      retries: 2
+      max_completion_time_seconds: 10
+      retries: 1
   stage_2:
     executable_module_path: stage_2/main.py
     cpu_request: 0.1
     memory_request_mb: 100
     service:
-      max_startup_time_seconds: 5
+      max_startup_time_seconds: 10
       replicas: 1
       port: 5000
       ingress: true
@@ -29,7 +29,7 @@ stages:
     cpu_request: 0.1
     memory_request_mb: 100
     service:
-      max_startup_time_seconds: 5
+      max_startup_time_seconds: 10
       replicas: 1
       port: 5000
       ingress: true
